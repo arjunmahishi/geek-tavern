@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from firebase import firebase
 
-firebase = firebase.FirebaseApplication("https://geektavern-64dff.firebaseio.com/", None)
 username = "arjun"
 # firebase.delete("/catagory", "123")
 
