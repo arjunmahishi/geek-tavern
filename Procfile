@@ -1,1 +1,1 @@
-web: gunicorn GeekTavern.wsgi --log-file
+web: gunicorn GeekTavern.wsgi --log-file -
