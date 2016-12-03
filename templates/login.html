@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="col-sm-4 col-sm-offset-4">
+<div class="jumbotron" style="margin-top: 200px; padding: 20px;">
+	<div class="form-group">
+	<input type="email" class="form-control" id="emailText" placeholder="Enter email"><br><br>
+	<input type="password" class="form-control" id="passwordText" placeholder="Enter password"><br><br>
+	<button id="loginButton" class="btn btn-primary">
+		Log in
+	</button>
+	<button id="signUpButton" class="btn btn-primary" style="float: right;">
+		Sign Up
+	</button>
+	<button id="logoutButton" class="btn btn-primary ">
+		Log out
+	</button>
+	</div>
+</div>
+</div>
+
+<script src="{% static 'js/auth.js' %}"></script>
+{% endblock %}

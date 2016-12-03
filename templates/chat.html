@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3><center>You are chatting with {{helper}}</center></h3>
+
+<div class="container" style="border: solid; overflow-y: scroll; height: 60rem;" >
+<form action="/chat/" method="POST">{% csrf_token %}
+	<div class="bottom" style="margin-top : 550px; position: static;">
+	<div class="col-sm-10 col-sm-offset-1 col-xs-10">
+	<input type="text" class="form-control" name="message" placeholder="type message here...">
+	</div>
+	<input type="submit" value="GO" class="btn btn-primary">
+	</div>
+</form>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

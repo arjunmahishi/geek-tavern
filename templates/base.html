@@ -1,0 +1,72 @@
+{% load staticfiles %}
+
+<html>
+<head>
+	<title>{{title}} | GeekTavern</title>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script> -->
+	<script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+	<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--FIREBASE WEB SETUP-->
+	<script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+	<script type="text/javascript">
+		var currentUser = "{{currentUser}}";
+	</script>
+	<script src="{% static 'js/app.js' %}"></script>
+
+	<!-- MDL -->
+	<link rel="stylesheet" href="{% static 'mdl/material.min.css' %}">
+	<script src="{% static 'mdl/material.min.js' %}"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+
+
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <a href="/" style="color: #fff;">
+      <span class="mdl-layout-title">Geek Tavern</span>
+      </a>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+     <!--  <nav class="mdl-navigation mdl-layout - -large-screen-only">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav> -->
+    </div>
+  </header>
+  <!-- <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div> -->
+  <main class="mdl-layout__content">
+    <div class="page-content">
+
+
+		{% block content %}
+		{% endblock %}
+
+    </div>
+  </main>
+</div>
+
+</body>
+
+{% block footer %}
+{% endblock %}
+
+</html>
