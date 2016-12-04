@@ -3,6 +3,8 @@ const textBox = document.getElementById('catagory');
 var checkRef = firebase.database().ref("/catagories");
 var catagory;
 
+// TODO : Generate chat ID here
+
 console.log("currentUser is " + currentUser);
 
 function addCatagory(catagory) {

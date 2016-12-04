@@ -1,21 +1,53 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load staticfiles %}
 
 {% block content %}
 
-<h3><center>You are chatting with {{helper}}</center></h3>
 
-<div class="container" style="border: solid; overflow-y: scroll; height: 60rem;" >
-<form action="/chat/" method="POST">{% csrf_token %}
-	<div class="bottom" style="margin-top : 550px; position: static;">
-	<div class="col-sm-10 col-sm-offset-1 col-xs-10">
-	<input type="text" class="form-control" name="message" placeholder="type message here...">
+<div class="mdl-layout mdl-js-layout">
+
+	<!-- Chat messages -->
+	<main class="mdl-layout__content" id="cont">
+		<div class="page-content">
+			<ul class="demo-list-three mdl-list" id="list1" style="padding: 5rem;">
+
+
+
+			</ul>
+
+		</div>
+	</main>
+
+	<!-- Message box and button -->
+	<div class="row" style="margin: 7px;">
+			<div class="col-sm-11 col-xs-9">
+				<input type="text" id="chat_text_box" class="form-control" 
+				placeholder="Type your message" style="height: 59px;">
+			</div>
+			<div class="col-sm-1 col-xs-1">
+				<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="chatSubmitButton" 
+				type="button">
+				<i class="material-icons">send</i>
+				</button>
+			</div>
 	</div>
-	<input type="submit" value="GO" class="btn btn-primary">
-	</div>
-</form>
+
 </div>
 
+
+<script type="text/javascript" src="{% static 'js/chat.js' %}"></script>
+
+
 {% endblock %}
 
-{% block footer %}
-{% endblock %}
+
+<li class="mdl-list__item mdl-list__item--three-line">
+	<span class="mdl-list__item-primary-content">
+		<i class="material-icons mdl-list__item-avatar">person</i>
+		<span>Bryan Cranston</span>
+		<span class="mdl-list__item-text-body">
+		Bryan Cranston played the role of Walter in Breaking Bad. He is also known
+		for playing Hal in Malcom in the Middle.
+		</span>
+	</span>
+</li>

@@ -8,7 +8,7 @@ def home(requests):
 	return render(requests, "home.html", {'title' : 'Home'})
 
 def chat(requests):
-	return render(requests, "test.html", {"title" : "Chat Room"})
+	return render(requests, "chat.html", {"title" : "Chat Room"})
 
 def login(requests):
 	return render(requests, "login.html", {"title" : "Log in"})
