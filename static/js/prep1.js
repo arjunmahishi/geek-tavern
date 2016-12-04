@@ -1,14 +1,13 @@
 const button = document.getElementById('submitButton');
 const textBox = document.getElementById('catagory');
+const meta = document.getElementById('chatId');
 var checkRef = firebase.database().ref("/catagories");
 var catagory;
 
-// TODO : Generate chat ID here
-
-console.log("currentUser is " + currentUser);
+console.log("chatId : " + meta.value);
 
 function addCatagory(catagory) {
-	var chatId = currentUser + Math.floor((Math.random() * 100000) + 1);
+	var chatId = meta.value;
 	const catagoryRef = firebase.database().ref("/catagories/" + chatId);
 	var test = catagoryRef.set(catagory);
 	console.log(test);

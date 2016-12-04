@@ -1,17 +1,19 @@
 from django.shortcuts import render
+import time
 
-username = "arjun"
+nickname = "arjun"
+chatId = nickname + str(int(time.time()))
 # firebase.delete("/catagory", "123")
 
 
 def home(requests):
-	return render(requests, "home.html", {'title' : 'Home'})
+	return render(requests, "home.html")
 
 def chat(requests):
-	return render(requests, "chat.html", {"title" : "Chat Room"})
+	return render(requests, "chat.html")
 
 def login(requests):
-	return render(requests, "login.html", {"title" : "Log in"})
+	return render(requests, "login.html")
 
 def prep(requests):
 
@@ -20,8 +22,7 @@ def prep(requests):
 
 	context = {
 		# TODO : Change the name to something more meaningful
-		'title' : "Prep",
-		'currentUser' : username,
+		'chatId' : chatId,
 	}
 
 	if get :

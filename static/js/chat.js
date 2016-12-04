@@ -8,6 +8,9 @@ const chatSubmitButton = document.getElementById('chatSubmitButton');
 const container = document.getElementById('cont');
 var me = "warlock"; // TODO : Make 'me' dynamic
 
+const meta = document.getElementById('chatId');
+console.log( "chatId : " + meta.value);
+
 // Real-Time database  Handlers //
 dbRef.on('child_added', snap=> {
 	const listItem = document.createElement('li');

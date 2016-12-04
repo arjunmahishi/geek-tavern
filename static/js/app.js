@@ -17,3 +17,9 @@ firebase.auth().onAuthStateChanged( firebaseUser =>{
 		console.log("NOT LOGGED IN");
 	}
 });
+
+var globalChatId = "123";
+
+function updateId(newId){
+	globalChatId = newId;
+}
