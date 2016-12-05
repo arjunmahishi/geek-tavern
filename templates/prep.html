@@ -15,10 +15,15 @@
 			</div>
 		</div>
 		<div class="col-sm-1">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="submitButton" style="float: right;">Submit </button>
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" name="chosenTopic" value="{{ chatId }}" id="submitButton" style="float: right;">Submit </button>
 		</div>
 	</div>
 </div>
+
+<form id="postForm" method="post" action="/chat/">{% csrf_token %}
+	<input type="hidden" id="postDataChatId" name="chosenTopic">
+	<input type="hidden" id="postDataRole" name="role" value="Asker">
+</form>
 
 <script type="text/javascript" src="{% static 'js/prep1.js' %}"></script>
 
@@ -29,9 +34,12 @@
 	<div class="row col-sm-offset-2 col-xs-offset-2">
 			<label class="lead">Topics available : </label>
 	</div>
+	<form method="post" action="/chat/">{% csrf_token %}
+	<input type="hidden" id="postDataRole" name="role" value="Answerer">
 	<div class="row" id="catagoryList">
 
 	</div><br>
+	</form>
 </div>
 
 <script type="text/javascript" src="{% static 'js/prep2.js' %}"></script>

@@ -22,7 +22,8 @@
 	<link rel="stylesheet" href="{% static 'mdl/material.min.css' %}">
 	<script src="{% static 'mdl/material.min.js' %}"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <input class="hide" id="chatId" value="{{ chatId }}">
+  <input type="hidden" id="chatId" value="{{ chatId }}"/>
+  <input type="hidden" id="role" value="{{ role }}"/>
 
 </head>
 <body>
@@ -38,6 +39,8 @@
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
         <a class="mdl-navigation__link" href="/">Home</a>
+        <a class="mdl-navigation__link" href="/prep/?role=1">Ask</a>
+        <a class="mdl-navigation__link" href="/prep/?role=2">Answer</a>
       </nav>
     </div>
   </header>
@@ -45,6 +48,8 @@
     <span class="mdl-layout-title">Geek Tavern</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="/">Home</a>
+      <a class="mdl-navigation__link" href="/prep/?role=1">Ask</a>
+      <a class="mdl-navigation__link" href="/prep/?role=2">Answer</a>
     </nav>
   </div>
   <main class="mdl-layout__content">

@@ -1,6 +1,6 @@
-console.log("{{testString}}");
+console.log(document.getElementById('role').value);
 
-const chatId = Date.now();
+const chatId = document.getElementById('chatId').value;
 var dbRef = firebase.database().ref('chats/' + chatId);
 var list = document.getElementById("list1");
 const textBox = document.getElementById('chat_text_box');
@@ -8,8 +8,11 @@ const chatSubmitButton = document.getElementById('chatSubmitButton');
 const container = document.getElementById('cont');
 var me = "warlock"; // TODO : Make 'me' dynamic
 
-const meta = document.getElementById('chatId');
-console.log( "chatId : " + meta.value);
+// Deleting catagory //
+if(document.getElementById('role').value == "Answerer"){
+	firebase.database().ref('catagories/' + chatId).set(null);
+}
+
 
 // Real-Time database  Handlers //
 dbRef.on('child_added', snap=> {
@@ -42,7 +45,7 @@ function sendMessage(chatId, nickname, message) {
 	const chatRef = firebase.database().ref("chats/" + chatId + "/"
 		+ nickname + Date.now());
 	chatRef.set({
-		'from' : nickname,
+		'from' : document.getElementById('role').value,
 		'message' : message
 	}); 
 	console.log("Sent!");	
