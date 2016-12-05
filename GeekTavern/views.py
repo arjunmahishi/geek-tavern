@@ -5,9 +5,11 @@ nickname = "arjun"
 chatId = nickname + str(int(time.time()))
 # firebase.delete("/catagory", "123")
 
-
 def home(requests):
 	return render(requests, "home.html")
+
+def getStarted(requests):
+	return render(requests, "get.html")
 
 def chat(requests):
 	context = {}

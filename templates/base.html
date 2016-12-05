@@ -33,12 +33,15 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
+      <a href="/" style="color: #fff;">
       <span class="mdl-layout-title">Geek Tavern</span>
+      </a>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
         <a class="mdl-navigation__link" href="/">Home</a>
+				<a class="mdl-navigation__link" href="/getstarted/">Get started</a>
         <a class="mdl-navigation__link" href="/prep/?role=1">Ask</a>
         <a class="mdl-navigation__link" href="/prep/?role=2">Answer</a>
       </nav>
@@ -48,13 +51,14 @@
     <span class="mdl-layout-title">Geek Tavern</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="/">Home</a>
+      <a class="mdl-navigation__link" href="/getstarted/">Get started</a>
       <a class="mdl-navigation__link" href="/prep/?role=1">Ask</a>
       <a class="mdl-navigation__link" href="/prep/?role=2">Answer</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
     <div class="page-content">
-    	
+
     {% block content %}
     {% endblock %}
 

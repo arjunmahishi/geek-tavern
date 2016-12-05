@@ -13,7 +13,6 @@ if(document.getElementById('role').value == "Answerer"){
 	firebase.database().ref('catagories/' + chatId).set(null);
 }
 
-
 // Real-Time database  Handlers //
 dbRef.on('child_added', snap=> {
 	const listItem = document.createElement('li');
@@ -47,8 +46,8 @@ function sendMessage(chatId, nickname, message) {
 	chatRef.set({
 		'from' : document.getElementById('role').value,
 		'message' : message
-	}); 
-	console.log("Sent!");	
+	});
+	console.log("Sent!");
 }
 
 chatSubmitButton.addEventListener('click', e=> {
