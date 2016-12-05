@@ -11,12 +11,15 @@ firebase.initializeApp(config);
 
 firebase.auth().onAuthStateChanged( firebaseUser =>{
 	if(firebaseUser){
-		console.log(firebaseUser);
+		console.log(firebaseUser  +  "Logged IN!");
 	}
 	else{
 		console.log("NOT LOGGED IN");
 	}
 });
+
+var promise = firebase.auth().signInAnonymously();
+console.log(promise);
 
 var globalChatId = "123";
 
