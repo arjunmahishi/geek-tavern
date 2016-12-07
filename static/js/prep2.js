@@ -11,7 +11,7 @@ avaliableCatgoriesRef.on('child_added', snapshot => {
 	var chipIcon = document.createElement('span');
 	var chipText = document.createElement('span');
 
-	col.className = "col-sm-3";
+	col.className = "col-md-4";
 	col.style.marginTop = "3px";
 	col.id = snapshot.key;
 	// link.href = "/chat/";
