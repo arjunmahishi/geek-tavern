@@ -7,21 +7,21 @@
 
 	<link rel="icon" type="image/png" href="{% static 'fav.png' %}"/>
 	<script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+
+  <!-- Bootstrap -->
 	<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!--FIREBASE WEB SETUP-->
 	<script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
-	<script type="text/javascript">
-		var currentUser = "{{currentUser}}";
-	</script>
 	<script src="{% static 'js/app.js' %}"></script>
 
 	<!-- MDL -->
 	<link rel="stylesheet" href="{% static 'mdl/material.min.css' %}">
 	<script src="{% static 'mdl/material.min.js' %}"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
   <input type="hidden" id="chatId" value="{{ chatId }}"/>
   <input type="hidden" id="role" value="{{ role }}"/>
 

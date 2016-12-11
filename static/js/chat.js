@@ -1,17 +1,36 @@
 console.log(document.getElementById('role').value);
 
 const chatId = document.getElementById('chatId').value;
-var dbRef = firebase.database().ref('chats/' + chatId);
+var dbRef = firebase.database().ref('chats/' + chatId + '/messages');
 var list = document.getElementById("list1");
 const textBox = document.getElementById('chat_text_box');
 const chatSubmitButton = document.getElementById('chatSubmitButton');
 const container = document.getElementById('cont');
-var me = "warlock"; // TODO : Make 'me' dynamic
+var no_of_users = 0;
+
+
+// Joining the chat //
+firebase.database().ref('chats/' + chatId + '/users/' + 
+					document.getElementById('role').value).set(true);
+
 
 // Deleting catagory //
 if(document.getElementById('role').value == "Answerer"){
 	firebase.database().ref('catagories/' + chatId).set(null);
 }
+
+
+// Checking number of users for the loading screen //
+const chatUsers = firebase.database().ref('chats/' + chatId + '/users');
+var chatUserCount = 0;
+chatUsers.on('child_added', snap => {
+	chatUserCount += 1;
+	if(chatUserCount > 1){
+		textBox.disabled = false;
+		document.getElementById('chatLoading').classList.add('hide');
+	}
+});
+
 
 // Real-Time database  Handlers //
 dbRef.on('child_added', snap=> {
@@ -38,13 +57,14 @@ dbRef.on('child_added', snap=> {
 	container.scrollTop = container.scrollHeight;
 });
 
-// Input handelers //
 
-function sendMessage(chatId, nickname, message) {
-	const chatRef = firebase.database().ref("chats/" + chatId + "/"
+// Input handelers //
+function sendMessage(chatId, message) {
+	const nickname = document.getElementById('role').value;
+	const chatRef = firebase.database().ref("chats/" + chatId + "/messages/"
 		+ nickname + Date.now());
 	chatRef.set({
-		'from' : document.getElementById('role').value,
+		'from' : nickname,
 		'message' : message
 	});
 	console.log("Sent!");
@@ -52,7 +72,7 @@ function sendMessage(chatId, nickname, message) {
 
 chatSubmitButton.addEventListener('click', e=> {
 	if (textBox.value != ""){
-		sendMessage(chatId, me, textBox.value);
+		sendMessage(chatId, textBox.value);
 		textBox.value = "";
 	}
 });
