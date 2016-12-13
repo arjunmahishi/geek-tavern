@@ -1,9 +1,12 @@
 const divRef = document.getElementById('catagoryList');
 const avaliableCatgoriesRef = firebase.database().ref('/catagories');
+const loadingCata = document.getElementById('loadingCata');
 
 // TODO : Get the chatId from chip-button and send to chat.js
 
 avaliableCatgoriesRef.on('child_added', snapshot => {
+
+	loadingCata.classList.add('hide');
 
 	var col = document.createElement('div');
 	var link = document.createElement('a');
