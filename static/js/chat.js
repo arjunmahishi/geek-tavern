@@ -7,6 +7,8 @@ const textBox = document.getElementById('chat_text_box');
 const chatSubmitButton = document.getElementById('chatSubmitButton');
 const container = document.getElementById('cont');
 const toast = document.getElementById('toast');
+
+var role =  document.getElementById('role').value;
 var no_of_users = 0;
 
 
@@ -41,6 +43,14 @@ dbRef.on('child_added', snap=> {
 	const icon = document.createElement('i');
 	const titleSpan	= document.createElement('span');
 	const bodySpan = document.createElement('span');
+	var from ;
+
+	if (role == snap.val().from){
+		from = "You";
+	}
+	else{
+		from = snap.val().from;
+	}
 
 	listItem.className = "mdl-list__item mdl-list__item--three-line";
 	outerSpan.className = "mdl-list__item-primary-content";
@@ -48,7 +58,7 @@ dbRef.on('child_added', snap=> {
 	bodySpan.className = "mdl-list__item-text-body";
 
 	icon.innerText = "person";
-	titleSpan.innerText = snap.val().from;
+	titleSpan.innerText = from;
 	bodySpan.innerText = snap.val().message;
 
 	outerSpan.appendChild(icon);
