@@ -6,6 +6,7 @@ var list = document.getElementById("list1");
 const textBox = document.getElementById('chat_text_box');
 const chatSubmitButton = document.getElementById('chatSubmitButton');
 const container = document.getElementById('cont');
+const toast = document.getElementById('toast');
 var no_of_users = 0;
 
 
@@ -28,6 +29,7 @@ chatUsers.on('child_added', snap => {
 	if(chatUserCount > 1){
 		textBox.disabled = false;
 		document.getElementById('chatLoading').classList.add('hide');
+		toast.MaterialSnackbar.showSnackbar({ message :"The other user has joined!"});
 	}
 });
 
@@ -82,3 +84,4 @@ textBox.addEventListener('keypress', e => {
 		chatSubmitButton.click();
 	}
 });
+
