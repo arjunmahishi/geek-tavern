@@ -10,4 +10,5 @@ urlpatterns = [
     # url(r'^test/', views.testJS),
     url(r'^login/', views.login),
     url(r'^prep/', views.prep),
+    url(r'^profile/', views.profile),
 ]

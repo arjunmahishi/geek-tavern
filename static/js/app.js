@@ -9,10 +9,16 @@ var config = {
 
 firebase.initializeApp(config);
 
-var promise = firebase.auth().signInAnonymously();
-
 var globalChatId = "123";
 
 function updateId(newId){
 	globalChatId = newId;
 }
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log("Logged in!");
+  } else {
+    console.log("didn't work");
+  }
+});

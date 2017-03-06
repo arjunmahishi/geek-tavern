@@ -45,3 +45,6 @@ def prep(requests):
 			context['asker'] = False
 
 	return render(requests, "prep.html", context)
+
+def profile(requests):
+	return render(requests, "profile.html")
